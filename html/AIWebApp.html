@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joke Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f99494;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-top: 10%;
+    }
+    h1 {
+      color: #444;
+    }
+    .joke {
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 1.5em;
+      line-height: 1.4;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+    }
+    input {
+      padding: 10px;
+      font-size: 1em;
+      width: 60%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin: 20px auto;
+      font-size: 1.2em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guess the Joke Answer!</h1>
+    <div class="joke" id="joke">Click "New Joke" to start!</div>
+    <input type="text" id="guess" placeholder="Type your guess here">
+    <button onclick="checkAnswer()">Submit Guess</button>
+    <button onclick="generateJoke()">New Joke</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const jokes = [
+      { question: "Why don't skeletons fight each other?", answer: "They don't have the guts." },
+      { question: "What do you call cheese that isn't yours?", answer: "Nacho cheese." },
+      { question: "Why did the scarecrow win an award?", answer: "Because he was outstanding in his field!" },
+      { question: "I'm reading a book on anti-gravity. What's the punchline?", answer: "It's impossible to put down!" },
+      { question: "Why don't scientists trust atoms?", answer: "Because they make up everything!" },
+      { question: "What did the left eye say to the right eye?", answer: "Between you and me, something smells." },
+      { question: "Why was the math book sad?", answer: "It had too many problems." },
+      { question: "Why did the bicycle fall over?", answer: "Because it was two-tired!" },
+      { question: "What do you get when you cross a snowman with a vampire?", answer: "Frostbite." }
+    ];
+
+    let currentJoke = {};
+
+    function generateJoke() {
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      currentJoke = jokes[randomIndex];
+      document.getElementById('joke').textContent = currentJoke.question;
+      document.getElementById('guess').value = '';
+      document.getElementById('result').textContent = '';
+    }
+
+    function checkAnswer() {
+      const userGuess = document.getElementById('guess').value.trim();
+      const resultElement = document.getElementById('result');
+
+      if (userGuess.toLowerCase() === currentJoke.answer.toLowerCase()) {
+        resultElement.textContent = "YES!!! 🎉";
+        resultElement.style.color = "green";
+      } else {
+        resultElement.textContent = `Nope! The correct answer is: "${currentJoke.answer}"`;
+        resultElement.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

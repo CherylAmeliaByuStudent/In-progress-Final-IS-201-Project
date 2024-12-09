@@ -1,0 +1,74 @@
+a {color:rgb(181, 156, 17);
+}
+
+body{
+    background-color: rgb(21, 68, 91);
+    /* This is for the fonts */
+    color: white;
+    font-family:'Courier New', 'Courier', 'monospace'; /* each css line needs semicolon */
+    }
+
+h1,h2,h3,h4,h5,h6{
+    color: rgb(233, 47, 78);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
+
+
+.sidebar{
+    background-color: rgba(162, 238, 238, 0.84);
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    padding:15px;
+    display: flex;
+    flex-direction:column;
+    overflow-y: auto;
+}
+
+/* HUHHHH*/
+
+.sidebar ul {
+    list-style: none;
+    padding:0;
+}
+
+.sidebar ul li{
+    margin:15px 0;
+}
+
+.sidebar ul li a{
+    color: rgb(17, 14, 74);
+    text-decoration:none;
+}
+
+.sidebar ul li a:hover{
+    text-decoration:underline;
+}
+
+.main-content{
+    margin-left:220px;
+    padding:20px;
+}
+
+.navbar{
+    padding:10px;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    color:wheat;
+}
+
+.navbar a:hover{
+    background-color: rgb(43, 226, 104);
+    border-radius:5px;
+}
+
+.box-model{
+    padding: 15px; /* between border and background*/
+    background: lightsalmon; 
+    border: 5px solid yellow;
+    margin: 20px; /* between text and box*/
+}
